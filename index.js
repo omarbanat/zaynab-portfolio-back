@@ -1,6 +1,7 @@
 const express = require('express')
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const connectDB=require('./config/db')
 require('dotenv').config();
 
 const app = express();
@@ -18,5 +19,6 @@ app.use(morgan('common'));
 app.use(express.json());
 
 app.listen(PORT, () => {
+    connectDB()
     console.log(`Server is running on port : ${PORT}`);
 });
