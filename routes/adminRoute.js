@@ -1,16 +1,13 @@
-const mongoose = require('mongoose');
-require('dotenv').config();
+const express = require('express')
+const router = express.Router()
+const {registerAdmin, 
+    loginAdmin,
+    getMe}= require('../controllers/adminController')
 
-const connectDB = async () => {
-  try {
-    mongoose.set('strictQuery', true);
-    await mongoose.connect(process.env.MONGODB_URL, {
-      useNewUrlParser: true,
-    });
 
-    console.log('MongoDB is Connected...');
-  } catch (err) {
-    console.error(err.message);
-  }
-};
-module.exports = connectDB;
+router.post('/', registerAdmin)
+router.post('/login',loginAdmin)
+router.get('/me',getMe)
+
+
+module.exports=router
