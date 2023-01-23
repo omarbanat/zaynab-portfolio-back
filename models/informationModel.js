@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const informationSchema = new Schema({
-  type: { type: string, required: true },
-  title: { type: string, required: true },
-  description: { type: string },
-  image: { type: string, required: true },
-  fullDEscription: { type: string },
+  type: { type: String, required: true },
+  title: { type: String, required: true },
+  description: { type: String },
+  image: { type: String, required: true },
+  fullDEscription: { type: String },
 });
 
 const Information = mongoose.model('Information', informationSchema);
