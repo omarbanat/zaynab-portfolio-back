@@ -7,7 +7,7 @@ const adminSchema = new Schema({
   email: { type: String, required: true },
   DOB: { type: Date, required: true },
   password: { type: String, required: true },
- 
+
   // validate: (value) => {
   //   return validator.isEmail(value)
   // }
