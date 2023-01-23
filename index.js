@@ -17,6 +17,7 @@ app.use(bodyParser.json());
 app.use(morgan('common'));
 // app.use(Router);
 app.use(express.json());
+app.use('/admin',require('./routes/adminRoute'))
 
 app.listen(PORT, () => {
   connectDB();
