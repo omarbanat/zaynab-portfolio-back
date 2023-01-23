@@ -7,8 +7,8 @@ const experienceSchema = new Schema({
   companyName: { type: String, required: true },
   city: { type: String, required: true },
   country: { type: String, required: true },
-  startDate: { type: date, required: true },
-  endDate: { type: date, required: true },
+  startDate: { type: Date, required: true },
+  endDate: { type: Date, required: true },
   tasks: { type: String, required: true },
   skills: { type: String, required: true },
 });
