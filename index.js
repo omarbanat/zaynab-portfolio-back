@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 require('dotenv').config();
 const app = express();
+const informationRoute = require('./routes/informationRoute');
 
 const PORT = process.env.PORT || 3000;
 
@@ -17,6 +18,8 @@ app.use(bodyParser.json());
 app.use(morgan('common'));
 // app.use(Router);
 app.use(express.json());
+
+app.use('/infos', informationRoute);
 
 app.listen(PORT, () => {
   connectDB();

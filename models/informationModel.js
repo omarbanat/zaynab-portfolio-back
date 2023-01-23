@@ -7,8 +7,8 @@ const informationSchema = new Schema({
   title: { type: String, required: true },
   description: { type: String },
   image: { type: String, required: true },
-  fullDEscription: { type: String },
+  fullDescription: { type: String },
 });
 
-const Information = mongoose.model('Information', informationSchema);
+const Information = mongoose.model('Informations', informationSchema);
 module.exports = Information;
