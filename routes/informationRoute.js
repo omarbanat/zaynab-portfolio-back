@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getPrevWorkByID,updatePrevWorkByID, insertPrevWork,deleteProvWorkByID} = require('../controllers/informationController');
+const { getPrevWorkByID,updatePrevWorkByID,deleteProvWorkByID} = require('../controllers/informationController');
 const { protect } = require('../middleware/authMiddleware');
 
 

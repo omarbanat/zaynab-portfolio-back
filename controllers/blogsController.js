@@ -1,16 +1,15 @@
 const express = require('express');
 const blogsModel = require('../models/blogsModel')
 
-exports.updateBlogsID = async (req, res) => {
+exports.updateBlogsByID = async (req, res) => {
 
     try {
         //update by id
-        await blogsModel.updateOne(req.params.id, {
+        await blogsModel.updateOne(req.params.ID, {
             title: req.body.title,
             content: req.body.content,
             image: req.body.image,
-            publishedDate: req.body.publishedDate
-
+            publishedDate: req.body.publishedDate,
         });
 
         //return success
@@ -23,5 +22,6 @@ exports.updateBlogsID = async (req, res) => {
 
     }
 };
+
 
 

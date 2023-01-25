@@ -5,7 +5,7 @@ exports.updateExperienceID = async (req, res) => {
 
     try {
         //update by id
-        await experienceModel.updateOne(req.params.id, {
+        await experienceModel.updateOne(req.params.ID, {
             position: req.body.position,
             companyName: req.body.companyName,
             city: req.body.city,
