@@ -66,6 +66,7 @@ const loginAdmin = asyncHandler(async (req, res) => {
 //@route Get/admin/me
 
 const getMe = asyncHandler(async (req, res) => {
+  
   res.json({ message: 'Admin data display' });
 });
 

@@ -20,11 +20,13 @@ app.use(bodyParser.json());
 app.use(morgan('common'));
 // app.use(Router);
 app.use(express.json());
+
 app.use('/admin', adminRoute);
-
 app.use('/infos', informationRoute);
-
 app.use('/file', fileRoute);
+app.use('/experience', require('./routes/experienceRoute'));
+app.use('/blogs', require('./routes/blogsRoute'));
+
 app.listen(PORT, () => {
   connectDB();
   console.log(`Server is running on port : ${PORT}`);
