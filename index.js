@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 const app = express();
 const informationRoute = require('./routes/informationRoute');
+const fileRoute = require('./routes/fileRoute');
+const adminRoute = require('./routes/adminRoute');
 
 const PORT = process.env.PORT || 3000;
 
@@ -19,10 +21,12 @@ app.use(morgan('common'));
 // app.use(Router);
 app.use(express.json());
 
-app.use('/admin', require('./routes/adminRoute'));
+app.use('/admin', adminRoute);
 app.use('/infos', informationRoute);
+app.use('/file', fileRoute);
 app.use('/experience', require('./routes/experienceRoute'));
 app.use('/blogs', require('./routes/blogsRoute'));
+
 app.listen(PORT, () => {
   connectDB();
   console.log(`Server is running on port : ${PORT}`);
