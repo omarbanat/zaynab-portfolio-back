@@ -22,6 +22,7 @@ app.use('/admin',require('./routes/adminRoute'))
 
 app.use('/infos', informationRoute);
 
+app.use('/blogs', require('./routes/blogsRoute'))
 app.listen(PORT, () => {
   connectDB();
   console.log(`Server is running on port : ${PORT}`);
