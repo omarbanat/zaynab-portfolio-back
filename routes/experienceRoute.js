@@ -1,13 +1,12 @@
 const express = require('express');
-const { response } = require('express');
 const router = express.Router();
-const { updateExperienceID } = require('../controllers/experienceController')
-const { protect } = require('../middleware/authMiddleware')
+const {
+  getAllExperiences,
+  updateExperienceID,
+} = require('../controllers/experienceController');
+const { protect } = require('../middleware/authMiddleware');
 
-
-router.put('/updateExperienceID/:id',protect , updateExperienceID);
+router.get('/getAll', getAllExperiences);
+router.put('/updateExperienceID/:id', protect, updateExperienceID);
 
 module.exports = router;
-
-
-
