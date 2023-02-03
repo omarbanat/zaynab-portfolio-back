@@ -6,6 +6,7 @@ const app = express();
 const informationRoute = require('./routes/informationRoute');
 const fileRoute = require('./routes/fileRoute');
 const adminRoute = require('./routes/adminRoute');
+const cors = require('cors');
 
 const PORT = process.env.PORT || 3000;
 
@@ -16,6 +17,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // To parse json data
 app.use(bodyParser.json());
 
+app.use(cors());
 // ... Configurations
 app.use(morgan('common'));
 // app.use(Router);
