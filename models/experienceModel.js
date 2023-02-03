@@ -9,8 +9,8 @@ const experienceSchema = new Schema({
   country: { type: String, required: true },
   startDate: { type: Date, required: true },
   endDate: { type: Date, required: true },
-  tasks: { type: String, required: true },
-  skills: { type: String, required: true },
+  tasks: { type: Array, required: true },
+  skills: { type: Array, required: true },
 });
 
 const Experience = mongoose.model('Experience', experienceSchema);
