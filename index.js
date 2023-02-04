@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 const app = express();
 const informationRoute = require('./routes/informationRoute');
+const cors=require('cors');
 
 const PORT = process.env.PORT || 3000;
 
@@ -13,6 +14,8 @@ const connectDB = require('./config/db');
 app.use(bodyParser.urlencoded({ extended: false }));
 // To parse json data
 app.use(bodyParser.json());
+//CORS
+app.use(cors());
 
 // ... Configurations
 app.use(morgan('common'));
