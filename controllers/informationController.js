@@ -10,7 +10,15 @@ exports.getPrevWorkByID = (req, res) => {
   });
 };
 
+exports.getAllInformation = (req, res) => {
+  informationModel.find({}, (err, data) => {
+    if (err) {
+      return res.send({ status: 500, error: err });
+    }
+    return res.send({ status: 200, data });
 
+  })
+}
 
 exports.updatePrevWorkByID = async (req, res) => {
 
