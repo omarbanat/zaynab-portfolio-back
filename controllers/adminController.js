@@ -53,9 +53,9 @@ const loginAdmin = asyncHandler(async (req, res) => {
   const admin = await Admin.findOne({ email });
   if (admin && admin.password == password) {
     res.json({
-      _id: admin.id,
-      fullName: admin.fullName,
-      email: admin.email,
+      // _id: admin.id,
+      // fullName: admin.fullName,
+      // email: admin.email,
       token: generateToken(admin._id),
     });
   } else {

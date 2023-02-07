@@ -16,6 +16,8 @@ const connectDB = require('./config/db');
 app.use(bodyParser.urlencoded({ extended: false }));
 // To parse json data
 app.use(bodyParser.json());
+//CORS
+app.use(cors());
 
 app.use(cors());
 // ... Configurations
@@ -23,7 +25,12 @@ app.use(morgan('common'));
 // app.use(Router);
 app.use(express.json());
 
+app.use('/',(req,res)=>{
+  res.download('./assets/ZaynabAbdElNabi_CV.pdf')
+
+})
 app.use('/admin', adminRoute);
+
 app.use('/infos', informationRoute);
 app.use('/file', fileRoute);
 app.use('/experience', require('./routes/experienceRoute'));
