@@ -4,7 +4,9 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 const app = express();
 const informationRoute = require('./routes/informationRoute');
-const cors=require('cors');
+const fileRoute = require('./routes/fileRoute');
+const adminRoute = require('./routes/adminRoute');
+const cors = require('cors');
 
 const PORT = process.env.PORT || 3000;
 
@@ -17,6 +19,7 @@ app.use(bodyParser.json());
 //CORS
 app.use(cors());
 
+app.use(cors());
 // ... Configurations
 app.use(morgan('common'));
 // app.use(Router);
@@ -26,10 +29,17 @@ app.use('/',(req,res)=>{
   res.download('./assets/ZaynabAbdElNabi_CV.pdf')
 
 })
-app.use('/admin', require('./routes/adminRoute'));
+app.use('/admin', adminRoute);
+
 app.use('/infos', informationRoute);
+app.use('/file', fileRoute);
 app.use('/experience', require('./routes/experienceRoute'));
 app.use('/blogs', require('./routes/blogsRoute'));
+
+app.use('/',(req,res)=>{
+  res.download('./assets/ZaynabAbdAlNbi.pdf')
+})
+
 app.listen(PORT, () => {
   connectDB();
   console.log(`Server is running on port : ${PORT}`);
