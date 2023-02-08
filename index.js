@@ -25,10 +25,9 @@ app.use(morgan('common'));
 // app.use(Router);
 app.use(express.json());
 
-app.use('/',(req,res)=>{
-  res.download('./assets/ZaynabAbdElNabi_CV.pdf')
-
-})
+// app.use('/', (req, res) => {
+//   res.download('./assets/ZaynabAbdElNabi_CV.pdf');
+// });
 app.use('/admin', adminRoute);
 
 app.use('/infos', informationRoute);
@@ -36,12 +35,11 @@ app.use('/file', fileRoute);
 app.use('/experience', require('./routes/experienceRoute'));
 app.use('/blogs', require('./routes/blogsRoute'));
 
+app.use('/blogs', require('./routes/blogsRoute'));
 
-app.use('/blogs', require('./routes/blogsRoute'))
-
-app.use('/',(req,res)=>{
-  res.download('./assets/ZaynabAbdAlNbi.pdf')
-})
+// app.use('/',(req,res)=>{
+//   res.download('./assets/ZaynabAbdAlNbi.pdf')
+// })
 
 app.listen(PORT, () => {
   connectDB();
