@@ -1,9 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const { updateBlogsByID } = require('../controllers/blogsController')
-const { protect } = require('../middleware/authMiddleware')
+const {
+  getAllBlogs,
+  updateBlogsByID,
+} = require('../controllers/blogsController');
+const { protect } = require('../middleware/authMiddleware');
 
-
-router.put('/updateBlogsByID/:id', protect, updateBlogsByID);
+router.get('/getAllBlogs', protect, getAllBlogs);
+router.put('/updateBlogsByID/:ID', protect, updateBlogsByID);
 
 module.exports = router;
