@@ -36,6 +36,9 @@ app.use('/file', fileRoute);
 app.use('/experience', require('./routes/experienceRoute'));
 app.use('/blogs', require('./routes/blogsRoute'));
 
+
+app.use('/blogs', require('./routes/blogsRoute'))
+
 app.use('/',(req,res)=>{
   res.download('./assets/ZaynabAbdAlNbi.pdf')
 })
