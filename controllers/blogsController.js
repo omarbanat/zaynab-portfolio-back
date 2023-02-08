@@ -7,13 +7,6 @@ exports.readBlogByID = async (req, res) => {
   res.json(batata);
 };
 
-//read all blogs
-exports.readAllBlogs = async (req, res) => {
-  const batikha = await Blog.find({});
-  console.log(batikha);
-  res.json(batikha);
-};
-
 //delete a blog by its id
 exports.deleteBlogByID = async (req, res) => {
   const batatas = await Blog.findByIdAndRemove(req.params.id);
@@ -38,17 +31,29 @@ exports.createBlog = async (req, res) => {
   } catch (err) {
     console.log('error', err);
   }
+const blogsModel = require('../models/blogsModel');
+
+exports.getAllBlogs = (req, res) => {
+  blogsModel.find({}, (err, data) => {
+    if (err) {
+      return res.send({ status: 500, error: err });
+    }
+    return res.send({ status: 200, data });
+  });
 };
 
 exports.updateBlogsByID = async (req, res) => {
   try {
     //update by id
-    await blogsModel.updateOne(req.params.ID, {
-      title: req.body.title,
-      content: req.body.content,
-      image: req.body.image,
-      publishedDate: req.body.publishedDate,
-    });
+    await blogsModel.updateOne(
+      { _id: req.params.ID },
+      {
+        title: req.body.title,
+        content: req.body.content,
+        image: req.body.image,
+        publishedDate: req.body.publishedDate,
+      }
+    );
 
     //return success
     res.json('Updated');

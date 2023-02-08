@@ -12,17 +12,20 @@ exports.getAllExperiences = (req, res) => {
 exports.updateExperienceID = async (req, res) => {
   try {
     //update by id
-    await experienceModel.updateOne(req.params.ID, {
-      position: req.body.position,
-      companyName: req.body.companyName,
-      city: req.body.city,
-      country: req.body.country,
-      startDate: req.body.startDate,
-      endDate: req.body.endDate,
-      tasks: req.body.tasks,
-      skills: req.body.skills,
-    });
-
+    await experienceModel.updateOne(
+      { _id: req.params.ID },
+      {
+        sort: req.body.sort,
+        position: req.body.position,
+        companyName: req.body.companyName,
+        city: req.body.city,
+        country: req.body.country,
+        startDate: req.body.startDate,
+        endDate: req.body.endDate,
+        tasks: req.body.tasks,
+        skills: req.body.skills,
+      }
+    );
     //return success
     res.json('Updated');
   } catch (err) {
