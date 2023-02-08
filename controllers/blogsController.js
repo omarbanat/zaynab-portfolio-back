@@ -31,7 +31,7 @@ exports.createBlog = async (req, res) => {
   } catch (err) {
     console.log('error', err);
   }
-const blogsModel = require('../models/blogsModel');
+};
 
 exports.getAllBlogs = (req, res) => {
   blogsModel.find({}, (err, data) => {
