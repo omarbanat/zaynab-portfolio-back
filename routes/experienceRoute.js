@@ -6,7 +6,7 @@ const {
 } = require('../controllers/experienceController');
 const { protect } = require('../middleware/authMiddleware');
 
-router.get('/getAll', protect, getAllExperiences);
+router.get('/getAll', getAllExperiences);
 router.put('/updateExperienceID/:ID', protect, updateExperienceID);
 
 module.exports = router;
