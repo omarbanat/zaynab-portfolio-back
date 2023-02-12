@@ -25,9 +25,9 @@ app.use(morgan('common'));
 // app.use(Router);
 app.use(express.json());
 
-// app.use('/', (req, res) => {
-//   res.download('./assets/ZaynabAbdElNabi_CV.pdf');
-// });
+app.use('/download', (req, res) => {
+   res.download('./assets/ZaynabAbdElNabi_CV.pdf');
+});
 app.use('/admin', adminRoute);
 
 app.use('/infos', informationRoute);
