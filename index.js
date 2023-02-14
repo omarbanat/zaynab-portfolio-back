@@ -41,7 +41,7 @@ app.use('/blogs', require('./routes/blogsRoute'));
 //   res.download('./assets/ZaynabAbdAlNbi.pdf')
 // })
 
-app.listen(PORT, () => {
-  connectDB();
+app.listen(PORT, async() => {
+  await connectDB();
   console.log(`Server is running on port : ${PORT}`);
 });
