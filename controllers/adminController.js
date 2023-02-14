@@ -49,6 +49,10 @@ const Admin = require('../models/adminModel');
 
 const loginAdmin = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
+  
+  if(!email || !password){
+    return res.status(204).json("Invalid Input");
+  }
   //check for admin email
   const admin = await Admin.findOne({ email });
   if (admin && admin.password == password) {
